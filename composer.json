@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "yusetc/filemicroservice-SDK": "^1.0"
+        "yusetc/filemicroservice-SDK": ">=1.0"
         "php": ">=5.5",
         "ext-curl": "*",
         "ext-json": "*",
