@@ -2,10 +2,10 @@
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/yusetc/filemicroservice-SDK.git"
+            "url": "https://github.com/yusetc/filemicroservice-sdk.git"
         }
     ],
-    "name": "yusetc/filemicroservice-SDK",
+    "name": "yusetc/filemicroservice-sdk",
     "description": "",
     "keywords": [
         "swagger",
@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "yusetc/filemicroservice-SDK": ">=1.0",
+        "yusetc/filemicroservice-sdk": ">=1.0",
         "php": ">=5.5",
         "ext-curl": "*",
         "ext-json": "*",
