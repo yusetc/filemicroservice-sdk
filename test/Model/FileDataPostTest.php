@@ -1,6 +1,6 @@
 <?php
 /**
- * FileDataForSendTest
+ * FileDataPostTest
  *
  * PHP version 5
  *
@@ -11,9 +11,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * FileDataForSendTest Class Doc Comment
+ * FileDataPostTest Class Doc Comment
  *
  * @category    Class
- * @description FileDataForSend
+ * @description FileDataPost
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class FileDataForSendTest extends \PHPUnit_Framework_TestCase
+class FileDataPostTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,9 +69,9 @@ class FileDataForSendTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "FileDataForSend"
+     * Test "FileDataPost"
      */
-    public function testFileDataForSend()
+    public function testFileDataPost()
     {
     }
 
@@ -83,16 +83,16 @@ class FileDataForSendTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "metadata"
+     * Test attribute "content"
      */
-    public function testPropertyMetadata()
+    public function testPropertyContent()
     {
     }
 
     /**
-     * Test attribute "content"
+     * Test attribute "metadata"
      */
-    public function testPropertyContent()
+    public function testPropertyMetadata()
     {
     }
 }

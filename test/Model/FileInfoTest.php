@@ -11,9 +11,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -107,6 +107,13 @@ class FileInfoTest extends \PHPUnit_Framework_TestCase
      * Test attribute "content_type"
      */
     public function testPropertyContentType()
+    {
+    }
+
+    /**
+     * Test attribute "is_public"
+     */
+    public function testPropertyIsPublic()
     {
     }
 }

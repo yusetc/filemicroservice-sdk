@@ -10,9 +10,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -93,7 +93,7 @@ class SearchApi
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FileInfo
+     * @return \Swagger\Client\Model\FileInfo[]
      */
     public function searchMetadataKeyValueGet($key, $value)
     {
@@ -109,11 +109,11 @@ class SearchApi
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FileInfo, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\FileInfo[], HTTP status code, HTTP response headers (array of strings)
      */
     public function searchMetadataKeyValueGetWithHttpInfo($key, $value)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo';
+        $returnType = '\Swagger\Client\Model\FileInfo[]';
         $request = $this->searchMetadataKeyValueGetRequest($key, $value);
 
         try {
@@ -172,7 +172,7 @@ $responseBody = $response->getBody();
             switch ($e->getCode()) {
 case 200:$data = ObjectSerializer::deserialize(
                         $content,
-                        '\Swagger\Client\Model\FileInfo',
+                        '\Swagger\Client\Model\FileInfo[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ case 0:$data = ObjectSerializer::deserialize(
      */
     public function searchMetadataKeyValueGetAsyncWithHttpInfo($key, $value)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo';
+        $returnType = '\Swagger\Client\Model\FileInfo[]';
         $request = $this->searchMetadataKeyValueGetRequest($key, $value);
 
         return $this->client

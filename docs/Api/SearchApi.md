@@ -1,13 +1,13 @@
 # Swagger\Client\SearchApi
 
-All URIs are relative to *http://api.file.giffits.local/*
+All URIs are relative to *http://api.file.giffits.local*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**searchMetadataKeyValueGet**](SearchApi.md#searchMetadataKeyValueGet) | **GET** /search/metadata/{key}/{value} | 
 
 # **searchMetadataKeyValueGet**
-> \Swagger\Client\Model\FileInfo searchMetadataKeyValueGet($key, $value)
+> \Swagger\Client\Model\FileInfo[] searchMetadataKeyValueGet($key, $value)
 
 
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\FileInfo**](../Model/FileInfo.md)
+[**\Swagger\Client\Model\FileInfo[]**](../Model/FileInfo.md)
 
 ### Authorization
 

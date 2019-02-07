@@ -10,9 +10,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -90,7 +90,7 @@ class FileApi
 *
      * Add a new file to the filesystem
 *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileDataPost $body File data to add (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -107,7 +107,7 @@ class FileApi
 *
      * Add a new file to the filesystem
 *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileDataPost $body File data to add (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -196,7 +196,7 @@ case 0:$data = ObjectSerializer::deserialize(
      *
      * Add a new file to the filesystem
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileDataPost $body File data to add (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,7 +216,7 @@ case 0:$data = ObjectSerializer::deserialize(
      *
      * Add a new file to the filesystem
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileDataPost $body File data to add (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -266,7 +266,7 @@ $responseBody = $response->getBody();
     /**
      * Create request for operation 'addFile'
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileDataPost $body File data to add (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -580,7 +580,7 @@ $defaultHeaders = [];
     /**
      * Operation downloadFile
 *
-     * Download a file from specific id
+     * Download a file with a specific id
 *
 * @param  string $id id (required)
 *
@@ -597,7 +597,7 @@ $defaultHeaders = [];
     /**
      * Operation downloadFileWithHttpInfo
 *
-     * Download a file from specific id
+     * Download a file with a specific id
 *
 * @param  string $id (required)
 *
@@ -686,7 +686,7 @@ case 0:$data = ObjectSerializer::deserialize(
     /**
      * Operation downloadFileAsync
      *
-     * Download a file from specific id
+     * Download a file with a specific id
      *
 * @param  string $id (required)
 *
@@ -706,7 +706,7 @@ case 0:$data = ObjectSerializer::deserialize(
     /**
      * Operation downloadFileAsyncWithHttpInfo
      *
-     * Download a file from specific id
+     * Download a file with a specific id
      *
 * @param  string $id (required)
 *
@@ -790,11 +790,11 @@ if ($id !== null) {
         $_tempBody = null;
 if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/octet-stream','application/json']
+                ['application/octet-stream''application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/octet-stream','application/json'],
+                ['application/octet-stream''application/json'],
                 []
             );
         }
@@ -850,7 +850,7 @@ $defaultHeaders = [];
     /**
      * Operation findAllFiles
 *
-     * Find all files
+     * Get all files
 *
 * @param  int $limit Amount of elements per page (optional)
 * @param  int $offset Page offset (optional)
@@ -868,7 +868,7 @@ $defaultHeaders = [];
     /**
      * Operation findAllFilesWithHttpInfo
 *
-     * Find all files
+     * Get all files
 *
 * @param  int $limit Amount of elements per page (optional)
 * @param  int $offset Page offset (optional)
@@ -958,7 +958,7 @@ case 0:$data = ObjectSerializer::deserialize(
     /**
      * Operation findAllFilesAsync
      *
-     * Find all files
+     * Get all files
      *
 * @param  int $limit Amount of elements per page (optional)
 * @param  int $offset Page offset (optional)
@@ -979,7 +979,7 @@ case 0:$data = ObjectSerializer::deserialize(
     /**
      * Operation findAllFilesAsyncWithHttpInfo
      *
-     * Find all files
+     * Get all files
      *
 * @param  int $limit Amount of elements per page (optional)
 * @param  int $offset Page offset (optional)
@@ -1119,7 +1119,7 @@ $defaultHeaders = [];
     /**
      * Operation findFileById
 *
-     * Find file by ID
+     * Get file by ID
 *
 * @param  string $id File identifier (required)
 *
@@ -1136,7 +1136,7 @@ $defaultHeaders = [];
     /**
      * Operation findFileByIdWithHttpInfo
 *
-     * Find file by ID
+     * Get file by ID
 *
 * @param  string $id File identifier (required)
 *
@@ -1225,7 +1225,7 @@ case 0:$data = ObjectSerializer::deserialize(
     /**
      * Operation findFileByIdAsync
      *
-     * Find file by ID
+     * Get file by ID
      *
 * @param  string $id File identifier (required)
 *
@@ -1245,7 +1245,7 @@ case 0:$data = ObjectSerializer::deserialize(
     /**
      * Operation findFileByIdAsyncWithHttpInfo
      *
-     * Find file by ID
+     * Get file by ID
      *
 * @param  string $id File identifier (required)
 *
@@ -1391,7 +1391,7 @@ $defaultHeaders = [];
 *
      * Patch a specific file from the filesystem
 *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1408,7 +1408,7 @@ $defaultHeaders = [];
 *
      * Patch a specific file from the filesystem
 *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1497,7 +1497,7 @@ case 0:$data = ObjectSerializer::deserialize(
      *
      * Patch a specific file from the filesystem
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1517,7 +1517,7 @@ case 0:$data = ObjectSerializer::deserialize(
      *
      * Patch a specific file from the filesystem
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1567,7 +1567,7 @@ $responseBody = $response->getBody();
     /**
      * Create request for operation 'patchFile'
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1650,11 +1650,11 @@ $defaultHeaders = [];
 *
      * Update a specific file from the filesystem
 *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FileInfo[]
+     * @return \Swagger\Client\Model\FileObject[]
      */
     public function updateFile($body = null)
     {
@@ -1667,15 +1667,15 @@ $defaultHeaders = [];
 *
      * Update a specific file from the filesystem
 *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FileInfo[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\FileObject[], HTTP status code, HTTP response headers (array of strings)
      */
     public function updateFileWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo[]';
+        $returnType = '\Swagger\Client\Model\FileObject[]';
         $request = $this->updateFileRequest($body);
 
         try {
@@ -1734,7 +1734,7 @@ $responseBody = $response->getBody();
             switch ($e->getCode()) {
 case 200:$data = ObjectSerializer::deserialize(
                         $content,
-                        '\Swagger\Client\Model\FileInfo[]',
+                        '\Swagger\Client\Model\FileObject[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1756,7 +1756,7 @@ case 0:$data = ObjectSerializer::deserialize(
      *
      * Update a specific file from the filesystem
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1776,14 +1776,14 @@ case 0:$data = ObjectSerializer::deserialize(
      *
      * Update a specific file from the filesystem
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateFileAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo[]';
+        $returnType = '\Swagger\Client\Model\FileObject[]';
         $request = $this->updateFileRequest($body);
 
         return $this->client
@@ -1826,7 +1826,7 @@ $responseBody = $response->getBody();
     /**
      * Create request for operation 'updateFile'
      *
-* @param  \Swagger\Client\Model\FileDataForSend $body File data to add (optional)
+* @param  \Swagger\Client\Model\FileObject $body File data to update (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

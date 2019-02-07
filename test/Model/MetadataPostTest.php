@@ -1,6 +1,6 @@
 <?php
 /**
- * FileObjectTest
+ * MetadataPostTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * FileObjectTest Class Doc Comment
+ * MetadataPostTest Class Doc Comment
  *
  * @category    Class
- * @description FileObject
+ * @description MetadataPost
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class FileObjectTest extends \PHPUnit_Framework_TestCase
+class MetadataPostTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,16 +69,9 @@ class FileObjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "FileObject"
+     * Test "MetadataPost"
      */
-    public function testFileObject()
-    {
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
+    public function testMetadataPost()
     {
     }
 
@@ -90,37 +83,9 @@ class FileObjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "filesystem_key"
+     * Test attribute "value"
      */
-    public function testPropertyFilesystemKey()
-    {
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
-    {
-    }
-
-    /**
-     * Test attribute "content_type"
-     */
-    public function testPropertyContentType()
-    {
-    }
-
-    /**
-     * Test attribute "content"
-     */
-    public function testPropertyContent()
-    {
-    }
-
-    /**
-     * Test attribute "is_public"
-     */
-    public function testPropertyIsPublic()
+    public function testPropertyValue()
     {
     }
 }

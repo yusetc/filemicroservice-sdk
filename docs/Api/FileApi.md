@@ -1,14 +1,14 @@
 # Swagger\Client\FileApi
 
-All URIs are relative to *http://api.file.giffits.local/*
+All URIs are relative to *http://api.file.giffits.local*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addFile**](FileApi.md#addFile) | **POST** /media | Add a new file to the filesystem
 [**deleteFile**](FileApi.md#deleteFile) | **DELETE** /media/{id} | Deletes a file
-[**downloadFile**](FileApi.md#downloadFile) | **GET** /media/download/{id} | Download a file from specific id
-[**findAllFiles**](FileApi.md#findAllFiles) | **GET** /media | Find all files
-[**findFileById**](FileApi.md#findFileById) | **GET** /media/{id} | Find file by ID
+[**downloadFile**](FileApi.md#downloadFile) | **GET** /media/download/{id} | Download a file with a specific id
+[**findAllFiles**](FileApi.md#findAllFiles) | **GET** /media | Get all files
+[**findFileById**](FileApi.md#findFileById) | **GET** /media/{id} | Get file by ID
 [**patchFile**](FileApi.md#patchFile) | **PATCH** /media | Patch a specific file from the filesystem
 [**updateFile**](FileApi.md#updateFile) | **PUT** /media | Update a specific file from the filesystem
 
@@ -27,7 +27,7 @@ $apiInstance = new Swagger\Client\Api\FileApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Swagger\Client\Model\FileDataForSend(); // \Swagger\Client\Model\FileDataForSend | File data to add
+$body = new \Swagger\Client\Model\FileDataPost(); // \Swagger\Client\Model\FileDataPost | File data to add
 
 try {
     $result = $apiInstance->addFile($body);
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\FileDataForSend**](../Model/FileDataForSend.md)| File data to add | [optional]
+ **body** | [**\Swagger\Client\Model\FileDataPost**](../Model/FileDataPost.md)| File data to add | [optional]
 
 ### Return type
 
@@ -108,7 +108,7 @@ No authorization required
 # **downloadFile**
 > string downloadFile($id)
 
-Download a file from specific id
+Download a file with a specific id
 
 ### Example
 ```php
@@ -155,7 +155,7 @@ No authorization required
 # **findAllFiles**
 > \Swagger\Client\Model\FileInfo[] findAllFiles($limit, $offset)
 
-Find all files
+Get all files
 
 ### Example
 ```php
@@ -204,7 +204,7 @@ No authorization required
 # **findFileById**
 > \Swagger\Client\Model\FileInfo findFileById($id)
 
-Find file by ID
+Get file by ID
 
 Returns a single file
 
@@ -265,7 +265,7 @@ $apiInstance = new Swagger\Client\Api\FileApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Swagger\Client\Model\FileDataForSend(); // \Swagger\Client\Model\FileDataForSend | File data to add
+$body = new \Swagger\Client\Model\FileObject(); // \Swagger\Client\Model\FileObject | File data to update
 
 try {
     $result = $apiInstance->patchFile($body);
@@ -280,7 +280,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\FileDataForSend**](../Model/FileDataForSend.md)| File data to add | [optional]
+ **body** | [**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)| File data to update | [optional]
 
 ### Return type
 
@@ -298,7 +298,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateFile**
-> \Swagger\Client\Model\FileInfo[] updateFile($body)
+> \Swagger\Client\Model\FileObject[] updateFile($body)
 
 Update a specific file from the filesystem
 
@@ -312,7 +312,7 @@ $apiInstance = new Swagger\Client\Api\FileApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Swagger\Client\Model\FileDataForSend(); // \Swagger\Client\Model\FileDataForSend | File data to add
+$body = new \Swagger\Client\Model\FileObject(); // \Swagger\Client\Model\FileObject | File data to update
 
 try {
     $result = $apiInstance->updateFile($body);
@@ -327,11 +327,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\FileDataForSend**](../Model/FileDataForSend.md)| File data to add | [optional]
+ **body** | [**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)| File data to update | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\FileInfo[]**](../Model/FileInfo.md)
+[**\Swagger\Client\Model\FileObject[]**](../Model/FileObject.md)
 
 ### Authorization
 

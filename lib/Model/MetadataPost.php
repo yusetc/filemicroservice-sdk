@@ -1,6 +1,6 @@
 <?php
 /**
- * FileDataForSend
+ * MetadataPost
  *
  * PHP version 5
  *
@@ -11,9 +11,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * FileDataForSend Class Doc Comment
+ * MetadataPost Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FileDataForSend implements ModelInterface, ArrayAccess
+class MetadataPost implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class FileDataForSend implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FileDataForSend';
+    protected static $swaggerModelName = 'MetadataPost';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class FileDataForSend implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-'metadata' => '\Swagger\Client\Model\MetadataInfo[]',
-'content' => 'string'    ];
+'value' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,8 +66,7 @@ class FileDataForSend implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'name' => null,
-'metadata' => null,
-'content' => 'base64'    ];
+'value' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -98,8 +96,7 @@ class FileDataForSend implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-'metadata' => 'metadata',
-'content' => 'content'    ];
+'value' => 'value'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -108,8 +105,7 @@ class FileDataForSend implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-'metadata' => 'setMetadata',
-'content' => 'setContent'    ];
+'value' => 'setValue'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -118,8 +114,7 @@ class FileDataForSend implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-'metadata' => 'getMetadata',
-'content' => 'getContent'    ];
+'value' => 'getValue'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -180,8 +175,7 @@ class FileDataForSend implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -226,14 +220,14 @@ class FileDataForSend implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name filename used to identify the file object
+     * @param string $name metadata common name
      *
      * @return $this
      */
     public function setName($name)
     {
         if (!is_null($name) && (strlen($name) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling FileDataForSend., must be smaller than or equal to 512.');
+            throw new \InvalidArgumentException('invalid length for $name when calling MetadataPost., must be smaller than or equal to 512.');
         }
 
         $this->container['name'] = $name;
@@ -242,49 +236,25 @@ class FileDataForSend implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets metadata
-     *
-     * @return \Swagger\Client\Model\MetadataInfo[]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \Swagger\Client\Model\MetadataInfo[] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets content
+     * Gets value
      *
      * @return string
      */
-    public function getContent()
+    public function getValue()
     {
-        return $this->container['content'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets content
+     * Sets value
      *
-     * @param string $content File content in base64 format
+     * @param string $value metadata value in string format
      *
      * @return $this
      */
-    public function setContent($content)
+    public function setValue($value)
     {
-        $this->container['content'] = $content;
+        $this->container['value'] = $value;
 
         return $this;
     }

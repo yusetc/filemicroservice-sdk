@@ -10,9 +10,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -80,7 +80,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://api.file.giffits.local/';
+    protected $host = 'http://api.file.giffits.local';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default

@@ -10,9 +10,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -93,7 +93,7 @@ class FileApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for downloadFile
      *
-     * Download a file from specific id.
+     * Download a file with a specific id.
      *
      */
     public function testDownloadFile()
@@ -103,7 +103,7 @@ class FileApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for findAllFiles
      *
-     * Find all files.
+     * Get all files.
      *
      */
     public function testFindAllFiles()
@@ -113,7 +113,7 @@ class FileApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for findFileById
      *
-     * Find file by ID.
+     * Get file by ID.
      *
      */
     public function testFindFileById()

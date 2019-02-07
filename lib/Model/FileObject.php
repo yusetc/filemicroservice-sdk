@@ -11,9 +11,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -59,7 +59,7 @@ class FileObject implements ModelInterface, ArrayAccess
         'id' => 'string',
 'name' => 'string',
 'filesystem_key' => 'string',
-'metadata' => '\Swagger\Client\Model\MetadataEntry',
+'metadata' => '\Swagger\Client\Model\MetadataEntry[]',
 'content_type' => 'string',
 'content' => 'string',
 'is_public' => 'bool'    ];
@@ -217,16 +217,13 @@ class FileObject implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ((strlen($this->container['name']) > 512)) {
+        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 512)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 512.";
         }
 
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
         if (!is_null($this->container['content_type']) && (strlen($this->container['content_type']) > 1024)) {
             $invalidProperties[] = "invalid value for 'content_type', the character length must be smaller than or equal to 1024.";
         }
@@ -246,10 +243,7 @@ class FileObject implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['name'] === null) {
-            return false;
-        }
-        if ($this->container['metadata'] === null) {
+        if ($this->container['id'] === null) {
             return false;
         }
         if ($this->container['content'] === null) {
@@ -302,7 +296,7 @@ class FileObject implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if ((strlen($name) > 512)) {
+        if (!is_null($name) && (strlen($name) > 512)) {
             throw new \InvalidArgumentException('invalid length for $name when calling FileObject., must be smaller than or equal to 512.');
         }
 
@@ -338,7 +332,7 @@ class FileObject implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \Swagger\Client\Model\MetadataEntry
+     * @return \Swagger\Client\Model\MetadataEntry[]
      */
     public function getMetadata()
     {
@@ -348,7 +342,7 @@ class FileObject implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \Swagger\Client\Model\MetadataEntry $metadata metadata
+     * @param \Swagger\Client\Model\MetadataEntry[] $metadata metadata
      *
      * @return $this
      */
@@ -424,7 +418,7 @@ class FileObject implements ModelInterface, ArrayAccess
     /**
      * Sets is_public
      *
-     * @param bool $is_public Filesystem visibility for file
+     * @param bool $is_public Filesystem file visibility
      *
      * @return $this
      */

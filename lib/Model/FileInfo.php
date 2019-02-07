@@ -11,9 +11,9 @@
  */
 
 /**
-* REST API File-Microservice
+* File-Microservice SDK
  *
-* API to manage files as a Microservice
+* SDK to interact with File Microservice
  *
 * OpenAPI spec version: 1.0.0-oas3
  * Contact: yuset.calzadilla@giffits.de
@@ -60,7 +60,8 @@ class FileInfo implements ModelInterface, ArrayAccess
 'name' => 'string',
 'filesystem_key' => 'string',
 'metadata' => '\Swagger\Client\Model\MetadataInfo[]',
-'content_type' => 'string'    ];
+'content_type' => 'string',
+'is_public' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -72,7 +73,8 @@ class FileInfo implements ModelInterface, ArrayAccess
 'name' => null,
 'filesystem_key' => null,
 'metadata' => null,
-'content_type' => null    ];
+'content_type' => null,
+'is_public' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -105,7 +107,8 @@ class FileInfo implements ModelInterface, ArrayAccess
 'name' => 'name',
 'filesystem_key' => 'filesystem_key',
 'metadata' => 'metadata',
-'content_type' => 'content_type'    ];
+'content_type' => 'content_type',
+'is_public' => 'is_public'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -117,7 +120,8 @@ class FileInfo implements ModelInterface, ArrayAccess
 'name' => 'setName',
 'filesystem_key' => 'setFilesystemKey',
 'metadata' => 'setMetadata',
-'content_type' => 'setContentType'    ];
+'content_type' => 'setContentType',
+'is_public' => 'setIsPublic'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -129,7 +133,8 @@ class FileInfo implements ModelInterface, ArrayAccess
 'name' => 'getName',
 'filesystem_key' => 'getFilesystemKey',
 'metadata' => 'getMetadata',
-'content_type' => 'getContentType'    ];
+'content_type' => 'getContentType',
+'is_public' => 'getIsPublic'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -194,6 +199,7 @@ class FileInfo implements ModelInterface, ArrayAccess
         $this->container['filesystem_key'] = isset($data['filesystem_key']) ? $data['filesystem_key'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['is_public'] = isset($data['is_public']) ? $data['is_public'] : null;
     }
 
     /**
@@ -353,6 +359,30 @@ class FileInfo implements ModelInterface, ArrayAccess
         }
 
         $this->container['content_type'] = $content_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_public
+     *
+     * @return bool
+     */
+    public function getIsPublic()
+    {
+        return $this->container['is_public'];
+    }
+
+    /**
+     * Sets is_public
+     *
+     * @param bool $is_public Filesystem file visibility
+     *
+     * @return $this
+     */
+    public function setIsPublic($is_public)
+    {
+        $this->container['is_public'] = $is_public;
 
         return $this;
     }

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **filesystem_key** | **string** | The unique identifier for file system. | [optional] 
 **metadata** | [**\Swagger\Client\Model\MetadataInfo[]**](MetadataInfo.md) |  | [optional] 
 **content_type** | **string** | File Object content type | [optional] 
+**is_public** | **bool** | Filesystem file visibility | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
