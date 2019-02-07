@@ -1395,7 +1395,7 @@ $defaultHeaders = [];
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FileInfo[]
+     * @return \Swagger\Client\Model\FileObject
      */
     public function patchFile($body = null)
     {
@@ -1412,11 +1412,11 @@ $defaultHeaders = [];
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FileInfo[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\FileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchFileWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo[]';
+        $returnType = '\Swagger\Client\Model\FileObject';
         $request = $this->patchFileRequest($body);
 
         try {
@@ -1475,7 +1475,7 @@ $responseBody = $response->getBody();
             switch ($e->getCode()) {
 case 200:$data = ObjectSerializer::deserialize(
                         $content,
-                        '\Swagger\Client\Model\FileInfo[]',
+                        '\Swagger\Client\Model\FileObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1524,7 +1524,7 @@ case 0:$data = ObjectSerializer::deserialize(
      */
     public function patchFileAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo[]';
+        $returnType = '\Swagger\Client\Model\FileObject';
         $request = $this->patchFileRequest($body);
 
         return $this->client
@@ -1654,7 +1654,7 @@ $defaultHeaders = [];
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FileObject[]
+     * @return \Swagger\Client\Model\FileObject
      */
     public function updateFile($body = null)
     {
@@ -1671,11 +1671,11 @@ $defaultHeaders = [];
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FileObject[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\FileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateFileWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileObject[]';
+        $returnType = '\Swagger\Client\Model\FileObject';
         $request = $this->updateFileRequest($body);
 
         try {
@@ -1734,7 +1734,7 @@ $responseBody = $response->getBody();
             switch ($e->getCode()) {
 case 200:$data = ObjectSerializer::deserialize(
                         $content,
-                        '\Swagger\Client\Model\FileObject[]',
+                        '\Swagger\Client\Model\FileObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1783,7 +1783,7 @@ case 0:$data = ObjectSerializer::deserialize(
      */
     public function updateFileAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileObject[]';
+        $returnType = '\Swagger\Client\Model\FileObject';
         $request = $this->updateFileRequest($body);
 
         return $this->client

@@ -251,7 +251,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **patchFile**
-> \Swagger\Client\Model\FileInfo[] patchFile($body)
+> \Swagger\Client\Model\FileObject patchFile($body)
 
 Patch a specific file from the filesystem
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\FileInfo[]**](../Model/FileInfo.md)
+[**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateFile**
-> \Swagger\Client\Model\FileObject[] updateFile($body)
+> \Swagger\Client\Model\FileObject updateFile($body)
 
 Update a specific file from the filesystem
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\FileObject[]**](../Model/FileObject.md)
+[**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)
 
 ### Authorization
 
