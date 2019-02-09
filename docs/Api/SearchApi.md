@@ -4,12 +4,12 @@ All URIs are relative to *http://api.file.giffits.local*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**searchMetadataKeyValueGet**](SearchApi.md#searchMetadataKeyValueGet) | **GET** /search/metadata/{key}/{value} | 
+[**searchFileByMetadata**](SearchApi.md#searchFileByMetadata) | **GET** /search/metadata/{key}/{value} | Search file by metadata key and value
 
-# **searchMetadataKeyValueGet**
-> \Swagger\Client\Model\FileInfo[] searchMetadataKeyValueGet($key, $value)
+# **searchFileByMetadata**
+> \Swagger\Client\Model\FileInfo[] searchFileByMetadata($key, $value)
 
-
+Search file by metadata key and value
 
 ### Example
 ```php
@@ -25,10 +25,10 @@ $key = "key_example"; // string |
 $value = "value_example"; // string | 
 
 try {
-    $result = $apiInstance->searchMetadataKeyValueGet($key, $value);
+    $result = $apiInstance->searchFileByMetadata($key, $value);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SearchApi->searchMetadataKeyValueGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SearchApi->searchFileByMetadata: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
