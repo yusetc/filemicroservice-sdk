@@ -790,11 +790,11 @@ if ($id !== null) {
         $_tempBody = null;
 if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/octet-stream''application/json']
+                ['application/octet-stream','application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/octet-stream''application/json'],
+                ['application/octet-stream','application/json'],
                 []
             );
         }
