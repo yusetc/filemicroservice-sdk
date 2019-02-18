@@ -1,6 +1,6 @@
 <?php
 /**
- * SearchApi
+ * SecurityApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * SearchApi Class Doc Comment
+ * SecurityApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SearchApi
+class SecurityApi
 {
     /**
      * @var ClientInterface
@@ -86,39 +86,37 @@ class SearchApi
         return $this->config;
     }
     /**
-     * Operation searchFileByMetadata
+     * Operation getToken
 *
-     * Search file by metadata key and value
+     * Authenticate user and obtain token for every operation
 *
-* @param  string $key key (required)
-* @param  string $value value (required)
+* @param  \Swagger\Client\Model\UserData $body User data for login (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FileInfo[]
+     * @return \Swagger\Client\Model\Token
      */
-    public function searchFileByMetadata($key, $value)
+    public function getToken($body = null)
     {
-        list($response) = $this->searchFileByMetadataWithHttpInfo($key, $value);
+        list($response) = $this->getTokenWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation searchFileByMetadataWithHttpInfo
+     * Operation getTokenWithHttpInfo
 *
-     * Search file by metadata key and value
+     * Authenticate user and obtain token for every operation
 *
-* @param  string $key (required)
-* @param  string $value (required)
+* @param  \Swagger\Client\Model\UserData $body User data for login (optional)
 *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FileInfo[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Token, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchFileByMetadataWithHttpInfo($key, $value)
+    public function getTokenWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo[]';
-        $request = $this->searchFileByMetadataRequest($key, $value);
+        $returnType = '\Swagger\Client\Model\Token';
+        $request = $this->getTokenRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -176,7 +174,14 @@ $responseBody = $response->getBody();
             switch ($e->getCode()) {
 case 200:$data = ObjectSerializer::deserialize(
                         $content,
-                        '\Swagger\Client\Model\FileInfo[]',
+                        '\Swagger\Client\Model\Token',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+case 401:$data = ObjectSerializer::deserialize(
+                        $content,
+                        '\Swagger\Client\Model\GeneralError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -194,19 +199,18 @@ case 0:$data = ObjectSerializer::deserialize(
     }
 
     /**
-     * Operation searchFileByMetadataAsync
+     * Operation getTokenAsync
      *
-     * Search file by metadata key and value
+     * Authenticate user and obtain token for every operation
      *
-* @param  string $key (required)
-* @param  string $value (required)
+* @param  \Swagger\Client\Model\UserData $body User data for login (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFileByMetadataAsync($key, $value)
+    public function getTokenAsync($body = null)
     {
-        return $this->searchFileByMetadataAsyncWithHttpInfo($key, $value)
+        return $this->getTokenAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -215,20 +219,19 @@ case 0:$data = ObjectSerializer::deserialize(
     }
 
     /**
-     * Operation searchFileByMetadataAsyncWithHttpInfo
+     * Operation getTokenAsyncWithHttpInfo
      *
-     * Search file by metadata key and value
+     * Authenticate user and obtain token for every operation
      *
-* @param  string $key (required)
-* @param  string $value (required)
+* @param  \Swagger\Client\Model\UserData $body User data for login (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFileByMetadataAsyncWithHttpInfo($key, $value)
+    public function getTokenAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\Model\FileInfo[]';
-        $request = $this->searchFileByMetadataRequest($key, $value);
+        $returnType = '\Swagger\Client\Model\Token';
+        $request = $this->getTokenRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -268,53 +271,27 @@ $responseBody = $response->getBody();
     }
 
     /**
-     * Create request for operation 'searchFileByMetadata'
+     * Create request for operation 'getToken'
      *
-* @param  string $key (required)
-* @param  string $value (required)
+* @param  \Swagger\Client\Model\UserData $body User data for login (optional)
 *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchFileByMetadataRequest($key, $value)
+    protected function getTokenRequest($body = null)
     {
-// verify the required parameter 'key' is set
-        if ($key === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling searchFileByMetadata'
-            );
-        }
-// verify the required parameter 'value' is set
-        if ($value === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $value when calling searchFileByMetadata'
-            );
-        }
-$resourcePath = '/search/metadata/{key}/{value}';
+$resourcePath = '/get_token';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-// path params
-if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-// path params
-if ($value !== null) {
-            $resourcePath = str_replace(
-                '{' . 'value' . '}',
-                ObjectSerializer::toPathValue($value),
-                $resourcePath
-            );
-        }
 // body params
         $_tempBody = null;
+if (isset($body)) {
+            $_tempBody = $body;
+        }
 if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -367,7 +344,7 @@ $defaultHeaders = [];
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

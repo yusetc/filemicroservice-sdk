@@ -1,6 +1,6 @@
 {
-    "name": "yusetc/filemicroservice-sdk",
-    "description": "SDK to consume API files Microservice",
+    "name": "GIT_USER_ID/GIT_REPO_ID",
+    "description": "",
     "keywords": [
         "swagger",
         "php",
@@ -25,7 +25,7 @@
     "require-dev": {
         "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "~2.6",
-        "friendsofphp/php-cs-fixer": "~2.14"
+        "friendsofphp/php-cs-fixer": "~1.12"
     },
     "autoload": {
         "psr-4": { "Swagger\\Client\\" : "lib/" }

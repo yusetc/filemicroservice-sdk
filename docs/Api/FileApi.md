@@ -22,10 +22,12 @@ Add a new file to the filesystem
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\FileDataPost(); // \Swagger\Client\Model\FileDataPost | File data to add
 
@@ -50,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -69,10 +71,12 @@ Deletes a file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 
@@ -96,7 +100,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -115,10 +119,12 @@ Download a file with a specific id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 
@@ -143,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -162,10 +168,12 @@ Get all files
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $limit = 56; // int | Amount of elements per page
 $offset = 56; // int | Page offset
@@ -192,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -213,10 +221,12 @@ Returns a single file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | File identifier
 
@@ -241,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -260,10 +270,12 @@ Patch a specific file from the filesystem
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\FileObject(); // \Swagger\Client\Model\FileObject | File data to update
 
@@ -288,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -307,10 +319,12 @@ Update a specific file from the filesystem
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\FileObject(); // \Swagger\Client\Model\FileObject | File data to update
 
@@ -335,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

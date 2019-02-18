@@ -1,36 +1,33 @@
-# Swagger\Client\SearchApi
+# Swagger\Client\SecurityApi
 
 All URIs are relative to *http://api.file.giffits.local*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**searchFileByMetadata**](SearchApi.md#searchFileByMetadata) | **GET** /search/metadata/{key}/{value} | Search file by metadata key and value
+[**getToken**](SecurityApi.md#getToken) | **POST** /get_token | Authenticate user and obtain token for every operation
 
-# **searchFileByMetadata**
-> \Swagger\Client\Model\FileInfo[] searchFileByMetadata($key, $value)
+# **getToken**
+> \Swagger\Client\Model\Token getToken($body)
 
-Search file by metadata key and value
+Authenticate user and obtain token for every operation
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-$apiInstance = new Swagger\Client\Api\SearchApi(
+$apiInstance = new Swagger\Client\Api\SecurityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$key = "key_example"; // string | 
-$value = "value_example"; // string | 
+$body = new \Swagger\Client\Model\UserData(); // \Swagger\Client\Model\UserData | User data for login
 
 try {
-    $result = $apiInstance->searchFileByMetadata($key, $value);
+    $result = $apiInstance->getToken($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SearchApi->searchFileByMetadata: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -39,16 +36,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **string**|  |
- **value** | **string**|  |
+ **body** | [**\Swagger\Client\Model\UserData**](../Model/UserData.md)| User data for login | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\FileInfo[]**](../Model/FileInfo.md)
+[**\Swagger\Client\Model\Token**](../Model/Token.md)
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 

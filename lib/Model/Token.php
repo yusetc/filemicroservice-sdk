@@ -1,6 +1,6 @@
 <?php
 /**
- * FileInfo
+ * Token
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * FileInfo Class Doc Comment
+ * Token Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FileInfo implements ModelInterface, ArrayAccess
+class Token implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class FileInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FileInfo';
+    protected static $swaggerModelName = 'Token';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,7 @@ class FileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-'name' => 'string',
-'filesystem_key' => 'string',
-'metadata' => '\Swagger\Client\Model\MetadataInfo[]',
-'content_type' => 'string',
-'is_public' => 'bool'    ];
+        'token' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -69,12 +64,7 @@ class FileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'uuid',
-'name' => null,
-'filesystem_key' => null,
-'metadata' => null,
-'content_type' => null,
-'is_public' => null    ];
+        'token' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -103,12 +93,7 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-'name' => 'name',
-'filesystem_key' => 'filesystem_key',
-'metadata' => 'metadata',
-'content_type' => 'content_type',
-'is_public' => 'is_public'    ];
+        'token' => 'token'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -116,12 +101,7 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-'name' => 'setName',
-'filesystem_key' => 'setFilesystemKey',
-'metadata' => 'setMetadata',
-'content_type' => 'setContentType',
-'is_public' => 'setIsPublic'    ];
+        'token' => 'setToken'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -129,12 +109,7 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-'name' => 'getName',
-'filesystem_key' => 'getFilesystemKey',
-'metadata' => 'getMetadata',
-'content_type' => 'getContentType',
-'is_public' => 'getIsPublic'    ];
+        'token' => 'getToken'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -194,12 +169,7 @@ class FileInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['filesystem_key'] = isset($data['filesystem_key']) ? $data['filesystem_key'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
-        $this->container['is_public'] = isset($data['is_public']) ? $data['is_public'] : null;
+        $this->container['token'] = isset($data['token']) ? $data['token'] : null;
     }
 
     /**
@@ -210,14 +180,6 @@ class FileInfo implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 512)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 512.";
-        }
-
-        if (!is_null($this->container['content_type']) && (strlen($this->container['content_type']) > 1024)) {
-            $invalidProperties[] = "invalid value for 'content_type', the character length must be smaller than or equal to 1024.";
-        }
 
         return $invalidProperties;
     }
@@ -236,153 +198,25 @@ class FileInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets token
      *
      * @return string
      */
-    public function getId()
+    public function getToken()
     {
-        return $this->container['id'];
+        return $this->container['token'];
     }
 
     /**
-     * Sets id
+     * Sets token
      *
-     * @param string $id The unique identifier of the file object.
+     * @param string $token Auth token
      *
      * @return $this
      */
-    public function setId($id)
+    public function setToken($token)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name filename used to identify the file object
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        if (!is_null($name) && (strlen($name) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling FileInfo., must be smaller than or equal to 512.');
-        }
-
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets filesystem_key
-     *
-     * @return string
-     */
-    public function getFilesystemKey()
-    {
-        return $this->container['filesystem_key'];
-    }
-
-    /**
-     * Sets filesystem_key
-     *
-     * @param string $filesystem_key The unique identifier for file system.
-     *
-     * @return $this
-     */
-    public function setFilesystemKey($filesystem_key)
-    {
-        $this->container['filesystem_key'] = $filesystem_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \Swagger\Client\Model\MetadataInfo[]
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \Swagger\Client\Model\MetadataInfo[] $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets content_type
-     *
-     * @return string
-     */
-    public function getContentType()
-    {
-        return $this->container['content_type'];
-    }
-
-    /**
-     * Sets content_type
-     *
-     * @param string $content_type File Object content type
-     *
-     * @return $this
-     */
-    public function setContentType($content_type)
-    {
-        if (!is_null($content_type) && (strlen($content_type) > 1024)) {
-            throw new \InvalidArgumentException('invalid length for $content_type when calling FileInfo., must be smaller than or equal to 1024.');
-        }
-
-        $this->container['content_type'] = $content_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_public
-     *
-     * @return bool
-     */
-    public function getIsPublic()
-    {
-        return $this->container['is_public'];
-    }
-
-    /**
-     * Sets is_public
-     *
-     * @param bool $is_public Filesystem file visibility
-     *
-     * @return $this
-     */
-    public function setIsPublic($is_public)
-    {
-        $this->container['is_public'] = $is_public;
+        $this->container['token'] = $token;
 
         return $this;
     }

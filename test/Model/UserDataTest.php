@@ -1,6 +1,6 @@
 <?php
 /**
- * MetadataEntryTest
+ * UserDataTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * MetadataEntryTest Class Doc Comment
+ * UserDataTest Class Doc Comment
  *
  * @category    Class
- * @description MetadataEntry
+ * @description UserData
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MetadataEntryTest extends \PHPUnit_Framework_TestCase
+class UserDataTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,44 +69,23 @@ class MetadataEntryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "MetadataEntry"
+     * Test "UserData"
      */
-    public function testMetadataEntry()
+    public function testUserData()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "username"
      */
-    public function testPropertyId()
+    public function testPropertyUsername()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "password"
      */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
-    {
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-    }
-
-    /**
-     * Test attribute "file_object"
-     */
-    public function testPropertyFileObject()
+    public function testPropertyPassword()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * MetadataEntryTest
+ * TokenTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * MetadataEntryTest Class Doc Comment
+ * TokenTest Class Doc Comment
  *
  * @category    Class
- * @description MetadataEntry
+ * @description Token
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MetadataEntryTest extends \PHPUnit_Framework_TestCase
+class TokenTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,44 +69,16 @@ class MetadataEntryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "MetadataEntry"
+     * Test "Token"
      */
-    public function testMetadataEntry()
+    public function testToken()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "token"
      */
-    public function testPropertyId()
-    {
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
-    {
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-    }
-
-    /**
-     * Test attribute "file_object"
-     */
-    public function testPropertyFileObject()
+    public function testPropertyToken()
     {
     }
 }
