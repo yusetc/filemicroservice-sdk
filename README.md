@@ -20,11 +20,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "url": "https://github.com/yusetc/filemicroservice-sdk.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "yusetc/filemicroservice-sdk": ">=1.0"
   }
 }
 ```
@@ -56,6 +56,20 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
+// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+// This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
+
+try {
+    $authToken = $apiSecurityInstance->getToken($body);
+} catch (Exception $e) {
+    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
+}
+
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -105,10 +119,12 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-## bearerAuth
+### BearerAuth
 
+- For every endpoint from FileApi or SearchApi you need to generate a token using the endpoint (/get_token).
+- Please see the endpoint examples.
 
 
 ## Author
 
-
+Yuset Amado Calzadilla Cambara <yuset.calzadilla@giffits.de>
