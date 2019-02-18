@@ -329,6 +329,10 @@ $defaultHeaders = [];
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        if ($this->config->getAccessToken()) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
@@ -560,6 +564,10 @@ if ($multipart) {
 $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        if ($this->config->getAccessToken()) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $headers = array_merge(
@@ -832,6 +840,10 @@ $defaultHeaders = [];
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        if ($this->config->getAccessToken()) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
@@ -1099,6 +1111,10 @@ if ($multipart) {
 $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        if ($this->config->getAccessToken()) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $headers = array_merge(
@@ -1371,6 +1387,10 @@ $defaultHeaders = [];
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        if ($this->config->getAccessToken()) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
@@ -1630,6 +1650,10 @@ $defaultHeaders = [];
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        if ($this->config->getAccessToken()) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
@@ -1887,6 +1911,10 @@ if ($multipart) {
 $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        if ($this->config->getAccessToken()) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $headers = array_merge(
