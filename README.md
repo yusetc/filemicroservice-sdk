@@ -88,10 +88,7 @@ Class | Method | HTTP request | Description
 *FileApi* | [**patchFile**](docs/Api/FileApi.md#patchfile) | **PATCH** /media | Patch a specific file from the filesystem
 *FileApi* | [**updateFile**](docs/Api/FileApi.md#updatefile) | **PUT** /media | Update a specific file from the filesystem
 *SearchApi* | [**searchFileByMetadata**](docs/Api/SearchApi.md#searchfilebymetadata) | **GET** /search/metadata/{key}/{value} | Search file by metadata key and value
-<<<<<<< HEAD
 *SecurityApi* | [**getToken**](docs/Api/SecurityApi.md#gettoken) | **POST** /get_token | Authenticate user and obtain token for every operation
-=======
->>>>>>> d42d340e2b7b7f368ca0b52711f6b7e29cee099e
 
 ## Documentation For Models
 
