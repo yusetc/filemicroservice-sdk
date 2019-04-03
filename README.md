@@ -90,7 +90,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://api.file.giffits.local*
+All URIs are relative to *http://fileservice.tools.giffits.de*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
