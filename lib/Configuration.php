@@ -80,7 +80,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://api.file.giffits.local';
+    protected $host = 'http://fileservice.tools.giffits.de';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
