@@ -1,6 +1,6 @@
 <?php
 /**
- * FileInfoTest
+ * MetadataEntriesTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * FileInfoTest Class Doc Comment
+ * MetadataEntriesTest Class Doc Comment
  *
  * @category    Class
- * @description FileInfo
+ * @description MetadataEntries
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class FileInfoTest extends \PHPUnit_Framework_TestCase
+class MetadataEntriesTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,30 +69,9 @@ class FileInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "FileInfo"
+     * Test "MetadataEntries"
      */
-    public function testFileInfo()
-    {
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "filesystem_key"
-     */
-    public function testPropertyFilesystemKey()
+    public function testMetadataEntries()
     {
     }
 
@@ -100,20 +79,6 @@ class FileInfoTest extends \PHPUnit_Framework_TestCase
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()
-    {
-    }
-
-    /**
-     * Test attribute "content_type"
-     */
-    public function testPropertyContentType()
-    {
-    }
-
-    /**
-     * Test attribute "is_public"
-     */
-    public function testPropertyIsPublic()
     {
     }
 }

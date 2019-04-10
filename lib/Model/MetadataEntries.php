@@ -1,6 +1,6 @@
 <?php
 /**
- * GeneralError
+ * MetadataEntries
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * GeneralError Class Doc Comment
+ * MetadataEntries Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralError implements ModelInterface, ArrayAccess
+class MetadataEntries implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class GeneralError implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralError';
+    protected static $swaggerModelName = 'MetadataEntries';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,7 @@ class GeneralError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-'message' => 'string'    ];
+        'metadata' => '\Swagger\Client\Model\MetadataPost[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +64,7 @@ class GeneralError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-'message' => null    ];
+        'metadata' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +93,7 @@ class GeneralError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-'message' => 'message'    ];
+        'metadata' => 'metadata'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +101,7 @@ class GeneralError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-'message' => 'setMessage'    ];
+        'metadata' => 'setMetadata'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +109,7 @@ class GeneralError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-'message' => 'getMessage'    ];
+        'metadata' => 'getMetadata'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +169,7 @@ class GeneralError implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
     /**
@@ -203,49 +197,25 @@ class GeneralError implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets metadata
      *
-     * @return int
+     * @return \Swagger\Client\Model\MetadataPost[]
      */
-    public function getCode()
+    public function getMetadata()
     {
-        return $this->container['code'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets code
+     * Sets metadata
      *
-     * @param int $code code
+     * @param \Swagger\Client\Model\MetadataPost[] $metadata metadata
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setMetadata($metadata)
     {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 # Swagger\Client\FileApi
 
-All URIs are relative to *http://api.file.giffits.local*
+All URIs are relative to *https://virtserver.swaggerhub.com/Giffits-Quito/fileservice-sdk/1.1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,20 +22,6 @@ Add a new file to the filesystem
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
-
-try {
-    $authToken = $apiSecurityInstance->getToken($body);
-} catch (Exception $e) {
-    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
-}
-
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -70,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -85,20 +71,6 @@ Deletes a file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
-
-try {
-    $authToken = $apiSecurityInstance->getToken($body);
-} catch (Exception $e) {
-    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
-}
-
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -147,20 +119,6 @@ Download a file with a specific id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
-
-try {
-    $authToken = $apiSecurityInstance->getToken($body);
-} catch (Exception $e) {
-    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
-}
-
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -196,7 +154,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-streamapplication/json
+ - **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -210,20 +168,6 @@ Get all files
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
-
-try {
-    $authToken = $apiSecurityInstance->getToken($body);
-} catch (Exception $e) {
-    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
-}
-
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -277,20 +221,6 @@ Returns a single file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
-
-try {
-    $authToken = $apiSecurityInstance->getToken($body);
-} catch (Exception $e) {
-    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
-}
-
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -340,20 +270,6 @@ Patch a specific file from the filesystem
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
-
-try {
-    $authToken = $apiSecurityInstance->getToken($body);
-} catch (Exception $e) {
-    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
-}
-
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -388,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -403,20 +319,6 @@ Update a specific file from the filesystem
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiSecurityInstance = new Swagger\Client\Api\SecurityApi(
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Swagger\Client\Model\UserData(array('username' => 'the user', 'password' => 'the user password')); // \Swagger\Client\Model\UserData | User data for login
-
-try {
-    $authToken = $apiSecurityInstance->getToken($body);
-} catch (Exception $e) {
-    echo 'Exception when calling SecurityApi->getToken: ', $e->getMessage(), PHP_EOL;
-}
-
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken($authToken->getToken());
 
 $apiInstance = new Swagger\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -451,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
