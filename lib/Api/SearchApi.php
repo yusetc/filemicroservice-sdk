@@ -49,6 +49,21 @@ use Swagger\Client\ObjectSerializer;
 class SearchApi
 {
     /**
+     * @param ClientInterface $client
+     */
+    public function setClient($client)
+    {
+        $this->client = $client;
+    }
+
+    /**
+     * @param Configuration $config
+     */
+    public function setConfig($config)
+    {
+        $this->config = $config;
+    }
+    /**
      * @var ClientInterface
      */
     protected $client;
