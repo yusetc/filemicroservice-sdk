@@ -1,0 +1,1214 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "StandKizzen API",
+    "description" : "SDK to interact with all print instructions (StandKizzen) from the file service",
+    "contact" : {
+      "email" : "andres.guerrero@giffits.de"
+    },
+    "version" : "1.0.11"
+  },
+  "servers" : [ {
+    "url" : "http://api.standskizzen.giffits.local/"
+  } ],
+  "paths" : {
+    "/auth/token" : {
+      "get" : {
+        "summary" : "Authenticate the client in order to retrieve the authorization access",
+        "operationId" : "getTokenAction",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/UserLogin"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Return a JWT with the user session",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AuthToken"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Bad credentials",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadCredentials"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/" : {
+      "get" : {
+        "summary" : "Search print instructions by multiple metadata",
+        "operationId" : "searchByParams",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/SearchByMultipleMetadata"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad parameters",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadParameters"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "summary" : "Update two or more properties of a print instruction in the file service",
+        "operationId" : "updatePrintInstructionsAction",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/UpdatePropertiesFile"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad parameters",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadParameters"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "summary" : "Create a new record in the file service",
+        "operationId" : "savePrintInstructionsAction",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/PrintInstructionParameter"
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Return the whole information of the file created",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad parameters",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadParameters"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "501" : {
+            "description" : "Method not allowed",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DuplicatedRecord"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "summary" : "Delete a print instruction in the file service",
+        "operationId" : "deletePrintInstruction",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/DeleteFile"
+        },
+        "responses" : {
+          "204" : { },
+          "400" : {
+            "description" : "Bad parameters",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadParameters"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "patch" : {
+        "summary" : "Update a property of a print instruction in the file service",
+        "operationId" : "modifyDataPrintInstruction",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/UpdatePropertyFile"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad parameters",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadParameters"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/pixel" : {
+      "get" : {
+        "summary" : "Search print instructions by multiple metadata and return the file converted to a image",
+        "operationId" : "searchFilesVector",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/SearchByMultipleMetadata"
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Return a json with the information of all files",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileInformationPixel"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/vector" : {
+      "get" : {
+        "summary" : "Search print instructions by multiple metadata and return the file as PDF",
+        "operationId" : "searchFilesPixel",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/SearchByMultipleMetadata"
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Return a json with the information of all files",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FileInformationVector"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/key/{key}/{value}/" : {
+      "get" : {
+        "summary" : "Search information about a print instructions by any metadata",
+        "operationId" : "searchInformationBySingleMetadata",
+        "parameters" : [ {
+          "name" : "key",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Return a json with the information about the matched files",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/FileInformation"
+                  }
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/files/{key}/{value}/" : {
+      "get" : {
+        "summary" : "Search print instructions by any metadata in order to return the Standkizzen as a PNG or PDF converted to base 64",
+        "operationId" : "searchBySingleMetadataPixel",
+        "parameters" : [ {
+          "name" : "key",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "typeFile",
+          "in" : "query",
+          "description" : "Type of the file (either vector or pixel)",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "height",
+          "in" : "query",
+          "description" : "Height of the image",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "width",
+          "in" : "query",
+          "description" : "Width of the image",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Return a json with all files converted to base64",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Base64File"
+                  }
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeneralError"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "AuthToken" : {
+        "type" : "object",
+        "properties" : {
+          "token" : {
+            "type" : "string",
+            "description" : "Auth token"
+          }
+        }
+      },
+      "BadCredentials" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Description from current status code"
+          }
+        }
+      },
+      "BadParameters" : {
+        "type" : "object",
+        "properties" : {
+          "errors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BadParametersStructure"
+            }
+          }
+        }
+      },
+      "NotFound" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string",
+            "description" : "Description from current status code"
+          }
+        }
+      },
+      "Unauthorized" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string",
+            "description" : "Description from current status code"
+          }
+        }
+      },
+      "DuplicatedRecord" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string",
+            "description" : "Print instruction file already exist"
+          }
+        }
+      },
+      "MetadataInfo" : {
+        "type" : "object",
+        "properties" : {
+          "cardCode" : {
+            "type" : "string",
+            "description" : "Card code regard record"
+          },
+          "articleNumber" : {
+            "type" : "string",
+            "description" : "Article number"
+          },
+          "clusterId" : {
+            "type" : "string",
+            "description" : "id from the clust where the product belongs"
+          },
+          "printCode" : {
+            "type" : "string",
+            "description" : "Code print regard the product"
+          },
+          "printPosition" : {
+            "type" : "string",
+            "description" : "Print position regard the product"
+          },
+          "originalFileName" : {
+            "type" : "string",
+            "description" : "Original name from the uploaded file"
+          },
+          "fileType" : {
+            "type" : "string",
+            "description" : "The type of the uploaded file"
+          },
+          "importDate" : {
+            "type" : "string",
+            "description" : "The date for indicate when the file was imported"
+          },
+          "shopFree" : {
+            "type" : "string",
+            "description" : "Is an flag for know if the product is gonna be released on the shop"
+          },
+          "imageType" : {
+            "type" : "string",
+            "description" : "Indicates if the image is vector or pixel"
+          },
+          "language" : {
+            "type" : "string",
+            "description" : "Indicates the language of the file"
+          },
+          "allowRefPixelVector" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BadParametersStructure" : {
+        "type" : "object",
+        "properties" : {
+          "property_path" : {
+            "type" : "string",
+            "description" : "Name of the property"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Detailed message about the error"
+          }
+        }
+      },
+      "FileInformation" : {
+        "type" : "object",
+        "properties" : {
+          "metadataInfo" : {
+            "$ref" : "#/components/schemas/FileInformation_metadataInfo"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name file"
+          },
+          "fileSystemKey" : {
+            "type" : "string",
+            "description" : "This key is unic generated from the file service"
+          },
+          "contentType" : {
+            "type" : "string",
+            "description" : "Content type of the file"
+          }
+        }
+      },
+      "PrintInstructionParameter" : {
+        "type" : "object",
+        "properties" : {
+          "articleNumber" : {
+            "type" : "string",
+            "description" : "Article number"
+          },
+          "cardCode" : {
+            "type" : "string",
+            "description" : "Card code regard record"
+          },
+          "clusterId" : {
+            "type" : "string",
+            "description" : "id from the clust where the product belongs"
+          },
+          "printCode" : {
+            "type" : "string",
+            "description" : "Code print regard the product"
+          },
+          "printPosition" : {
+            "type" : "string",
+            "description" : "Print position regard the product"
+          },
+          "fileName" : {
+            "type" : "string",
+            "description" : "Original name from the uploaded file"
+          },
+          "originalFileName" : {
+            "type" : "string",
+            "description" : "Original name from the uploaded file"
+          },
+          "fileType" : {
+            "type" : "string",
+            "description" : "The type of the uploaded file"
+          },
+          "importDate" : {
+            "type" : "string",
+            "description" : "The date for indicate when the file was imported"
+          },
+          "shopFree" : {
+            "type" : "string",
+            "description" : "Is an flag for know if the product is gonna be released on the shop"
+          },
+          "imageType" : {
+            "type" : "string",
+            "description" : "Indicates if the image is vector or pixel"
+          },
+          "language" : {
+            "type" : "string",
+            "description" : "Indicates the language of the file"
+          },
+          "allowRefPixelVector" : {
+            "type" : "string"
+          },
+          "mymeType" : {
+            "type" : "string",
+            "description" : "MIME stands for \"Multipurpose Internet Mail Extensions."
+          },
+          "base64File" : {
+            "type" : "string",
+            "description" : "Input File Converted to Base 64"
+          }
+        }
+      },
+      "Base64File" : {
+        "type" : "string"
+      },
+      "FileInformationPixel" : {
+        "type" : "object",
+        "properties" : {
+          "metadataInfo" : {
+            "$ref" : "#/components/schemas/MetadataInfo"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name file"
+          },
+          "fileSystemKey" : {
+            "type" : "string",
+            "description" : "This key is unic generated from the file service"
+          },
+          "contentType" : {
+            "type" : "string",
+            "description" : "Content type of the file"
+          },
+          "file" : {
+            "type" : "string",
+            "description" : "File converted in base 64"
+          }
+        }
+      },
+      "FileInformationVector" : {
+        "type" : "object",
+        "properties" : {
+          "metadataInfo" : {
+            "$ref" : "#/components/schemas/MetadataInfo"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name file"
+          },
+          "fileSystemKey" : {
+            "type" : "string",
+            "description" : "This key is unic generated from the file service"
+          },
+          "contentType" : {
+            "type" : "string",
+            "description" : "Content type of the file"
+          },
+          "file" : {
+            "type" : "string",
+            "description" : "File converted in base 64"
+          }
+        }
+      },
+      "UserData" : {
+        "required" : [ "password", "username" ],
+        "type" : "object",
+        "properties" : {
+          "username" : {
+            "type" : "string",
+            "description" : "username for login"
+          },
+          "password" : {
+            "type" : "string",
+            "description" : "user password",
+            "format" : "password"
+          }
+        }
+      },
+      "KeyParameters" : {
+        "required" : [ "articleNumber", "imageType", "printCode", "printPosition" ],
+        "type" : "object",
+        "properties" : {
+          "articleNumber" : {
+            "type" : "string",
+            "description" : "Article number from the product"
+          },
+          "printCode" : {
+            "type" : "string",
+            "description" : "Print code number from the product"
+          },
+          "printPosition" : {
+            "type" : "string",
+            "description" : "Print position number from the product"
+          },
+          "imageType" : {
+            "type" : "string",
+            "description" : "Type image of the product"
+          }
+        }
+      },
+      "GeneralError" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "FileObject" : {
+        "required" : [ "allowRefPixelVector", "articleNumber", "base64File", "cardCode", "clusterId", "fileName", "fileType", "imageType", "importDate", "language", "mimeType", "originalFileName", "printCode", "printPosition", "shopFree" ],
+        "type" : "object",
+        "properties" : {
+          "articleNumber" : {
+            "type" : "string",
+            "description" : "Unique identifier for the article."
+          },
+          "printCode" : {
+            "maxLength" : 2,
+            "type" : "string",
+            "description" : "Code to print for the article"
+          },
+          "printPosition" : {
+            "type" : "string",
+            "description" : "Position to print for the article"
+          },
+          "imageType" : {
+            "type" : "string",
+            "description" : "Type image of the article"
+          },
+          "allowRefPixelVector" : {
+            "type" : "string"
+          },
+          "cardCode" : {
+            "type" : "string",
+            "description" : "Unique identifier for the article from the SAP"
+          },
+          "clusterId" : {
+            "type" : "string",
+            "description" : "Id from the Cluster where the article belongs"
+          },
+          "fileName" : {
+            "type" : "string",
+            "description" : "Name of the file uploaded on the File Service"
+          },
+          "originalFileName" : {
+            "type" : "string",
+            "description" : "Original Name of the file uploaded on the File Service"
+          },
+          "fileType" : {
+            "type" : "string",
+            "description" : "Type of the file to distinguish from the others, in this case is \"Standskizze\""
+          },
+          "importDate" : {
+            "type" : "string",
+            "description" : "Date where the file was imported"
+          },
+          "shopFree" : {
+            "type" : "string",
+            "description" : "Is an flag for know if the product is gonna be released on the shop"
+          },
+          "language" : {
+            "type" : "string",
+            "description" : "The language of the file"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "base64File" : {
+            "type" : "string",
+            "description" : "File converted in base 64"
+          }
+        }
+      },
+      "FileObjectSingle" : {
+        "required" : [ "articleNumber", "imageType", "printCode", "printPosition" ],
+        "type" : "object",
+        "properties" : {
+          "articleNumber" : {
+            "type" : "string",
+            "description" : "Unique identifier for the article."
+          },
+          "printCode" : {
+            "maxLength" : 2,
+            "type" : "string",
+            "description" : "Code to print for the article"
+          },
+          "printPosition" : {
+            "type" : "string",
+            "description" : "Position to print for the article"
+          },
+          "imageType" : {
+            "type" : "string",
+            "description" : "Type image of the article"
+          },
+          "allowRefPixelVector" : {
+            "type" : "string"
+          },
+          "cardCode" : {
+            "type" : "string",
+            "description" : "Unique identifier for the article from the SAP"
+          },
+          "clusterId" : {
+            "type" : "string",
+            "description" : "Id from the Cluster where the article belongs"
+          },
+          "fileName" : {
+            "type" : "string",
+            "description" : "Name of the file uploaded on the File Service"
+          },
+          "originalFileName" : {
+            "type" : "string",
+            "description" : "Original Name of the file uploaded on the File Service"
+          },
+          "fileType" : {
+            "type" : "string",
+            "description" : "Type of the file to distinguish from the others, in this case is \"Standskizze\""
+          },
+          "importDate" : {
+            "type" : "string",
+            "description" : "Date where the file was imported"
+          },
+          "shopFree" : {
+            "type" : "string",
+            "description" : "Is an flag for know if the product is gonna be released on the shop"
+          },
+          "language" : {
+            "type" : "string",
+            "description" : "The language of the file"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "base64File" : {
+            "type" : "string",
+            "description" : "File converted in base 64"
+          }
+        }
+      },
+      "FileInformation_metadataInfo" : {
+        "type" : "object",
+        "properties" : {
+          "cardCode" : {
+            "type" : "string",
+            "description" : "Card code regard record"
+          },
+          "articleNumber" : {
+            "type" : "string",
+            "description" : "Article number"
+          },
+          "clusterId" : {
+            "type" : "string",
+            "description" : "id from the clust where the product belongs"
+          },
+          "printCode" : {
+            "type" : "string",
+            "description" : "Code print regard the product"
+          },
+          "printPosition" : {
+            "type" : "string",
+            "description" : "Print position regard the product"
+          },
+          "originalFileName" : {
+            "type" : "string",
+            "description" : "Original name from the uploaded file"
+          },
+          "fileType" : {
+            "type" : "string",
+            "description" : "The type of the uploaded file"
+          },
+          "importDate" : {
+            "type" : "string",
+            "description" : "The date for indicate when the file was imported"
+          },
+          "shopFree" : {
+            "type" : "string",
+            "description" : "Is an flag for know if the product is gonna be released on the shop"
+          },
+          "imageType" : {
+            "type" : "string",
+            "description" : "Indicates if the image is vector or pixel"
+          },
+          "language" : {
+            "type" : "string",
+            "description" : "Indicates the language of the file"
+          },
+          "allowRefPixelVector" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "requestBodies" : {
+      "PrintInstructionParameter" : {
+        "description" : "Data for insert a new print instruction",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/PrintInstructionParameter"
+            }
+          }
+        }
+      },
+      "UserLogin" : {
+        "description" : "User data for login",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/UserData"
+            }
+          }
+        }
+      },
+      "SearchByMultipleMetadata" : {
+        "description" : "Key parameters to perform a search",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/KeyParameters"
+            }
+          }
+        }
+      },
+      "UpdatePropertiesFile" : {
+        "description" : "Data to perform update of two or many properties",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/FileObject"
+            }
+          }
+        }
+      },
+      "UpdatePropertyFile" : {
+        "description" : "Data to perform update a property",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/FileObjectSingle"
+            }
+          }
+        }
+      },
+      "DeleteFile" : {
+        "description" : "Data to perform a delete",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/KeyParameters"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "description" : "Authentication scheme used by the API passed in Authorization field",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  }
+}
