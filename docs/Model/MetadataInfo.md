@@ -1,7 +1,6 @@
-# # MetadataInfo
+# MetadataInfo
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | unique id for metadata entry | [optional] 
@@ -9,6 +8,5 @@ Name | Type | Description | Notes
 **value** | **string** | metadata value in string format | [optional] 
 **type** | **string** | metadata value type | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
