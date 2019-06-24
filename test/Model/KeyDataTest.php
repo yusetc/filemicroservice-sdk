@@ -1,6 +1,6 @@
 <?php
 /**
- * TokenTest
+ * KeyDataTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TokenTest Class Doc Comment
+ * KeyDataTest Class Doc Comment
  *
  * @category    Class
- * @description Token
+ * @description KeyData
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TokenTest extends TestCase
+class KeyDataTest extends TestCase
 {
 
     /**
@@ -72,16 +72,23 @@ class TokenTest extends TestCase
     }
 
     /**
-     * Test "Token"
+     * Test "KeyData"
      */
-    public function testToken()
+    public function testKeyData()
     {
     }
 
     /**
-     * Test attribute "token"
+     * Test attribute "key"
      */
-    public function testPropertyToken()
+    public function testPropertyKey()
+    {
+    }
+
+    /**
+     * Test attribute "docCount"
+     */
+    public function testPropertyDocCount()
     {
     }
 }

@@ -1,4 +1,4 @@
-# Swagger\Client\FileApi
+# OpenAPI\Client\FileApi
 
 All URIs are relative to *https://virtserver.swaggerhub.com/Giffits-Quito/fileservice-sdk/1.1.0*
 
@@ -12,27 +12,35 @@ Method | HTTP request | Description
 [**patchFile**](FileApi.md#patchFile) | **PATCH** /media | Patch a specific file from the filesystem
 [**updateFile**](FileApi.md#updateFile) | **PUT** /media | Update a specific file from the filesystem
 
-# **addFile**
-> \Swagger\Client\Model\FileInfo addFile($body)
+
+
+## addFile
+
+> \OpenAPI\Client\Model\FileInfo addFile($fileDataPost)
 
 Add a new file to the filesystem
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\FileDataPost(); // \Swagger\Client\Model\FileDataPost | File data to add
+$fileDataPost = new \OpenAPI\Client\Model\FileDataPost(); // \OpenAPI\Client\Model\FileDataPost | File data to add
 
 try {
-    $result = $apiInstance->addFile($body);
+    $result = $apiInstance->addFile($fileDataPost);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->addFile: ', $e->getMessage(), PHP_EOL;
@@ -42,13 +50,14 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\FileDataPost**](../Model/FileDataPost.md)| File data to add | [optional]
+ **fileDataPost** | [**\OpenAPI\Client\Model\FileDataPost**](../Model/FileDataPost.md)| File data to add | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\FileInfo**](../Model/FileInfo.md)
+[**\OpenAPI\Client\Model\FileInfo**](../Model/FileInfo.md)
 
 ### Authorization
 
@@ -56,29 +65,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **deleteFile**
+
+## deleteFile
+
 > deleteFile($id)
 
 Deletes a file
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
+$id = 'id_example'; // string | 
 
 try {
     $apiInstance->deleteFile($id);
@@ -89,6 +107,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -104,29 +123,38 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **downloadFile**
-> string downloadFile($id)
+
+## downloadFile
+
+> \SplFileObject downloadFile($id)
 
 Download a file with a specific id
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
+$id = 'id_example'; // string | 
 
 try {
     $result = $apiInstance->downloadFile($id);
@@ -139,13 +167,14 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**](../Model/.md)|  |
 
 ### Return type
 
-**string**
+[**\SplFileObject**](../Model/\SplFileObject.md)
 
 ### Authorization
 
@@ -153,23 +182,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/octet-stream, application/json
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream, application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **findAllFiles**
-> \Swagger\Client\Model\FileInfo[] findAllFiles($limit, $offset)
+
+## findAllFiles
+
+> \OpenAPI\Client\Model\FileInfo[] findAllFiles($limit, $offset)
 
 Get all files
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -189,6 +227,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Amount of elements per page | [optional]
@@ -196,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\FileInfo[]**](../Model/FileInfo.md)
+[**\OpenAPI\Client\Model\FileInfo[]**](../Model/FileInfo.md)
 
 ### Authorization
 
@@ -204,31 +243,40 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **findFileById**
-> \Swagger\Client\Model\FileInfo findFileById($id)
+
+## findFileById
+
+> \OpenAPI\Client\Model\FileInfo findFileById($id)
 
 Get file by ID
 
 Returns a single file
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | File identifier
+$id = 'id_example'; // string | File identifier
 
 try {
     $result = $apiInstance->findFileById($id);
@@ -241,13 +289,14 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**](../Model/.md)| File identifier |
 
 ### Return type
 
-[**\Swagger\Client\Model\FileInfo**](../Model/FileInfo.md)
+[**\OpenAPI\Client\Model\FileInfo**](../Model/FileInfo.md)
 
 ### Authorization
 
@@ -255,32 +304,41 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **patchFile**
-> \Swagger\Client\Model\FileObject patchFile($body)
+
+## patchFile
+
+> \OpenAPI\Client\Model\FileObject patchFile($fileObject)
 
 Patch a specific file from the filesystem
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\FileObject(); // \Swagger\Client\Model\FileObject | File data to update
+$fileObject = new \OpenAPI\Client\Model\FileObject(); // \OpenAPI\Client\Model\FileObject | File data to update
 
 try {
-    $result = $apiInstance->patchFile($body);
+    $result = $apiInstance->patchFile($fileObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->patchFile: ', $e->getMessage(), PHP_EOL;
@@ -290,13 +348,14 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)| File data to update | [optional]
+ **fileObject** | [**\OpenAPI\Client\Model\FileObject**](../Model/FileObject.md)| File data to update | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)
+[**\OpenAPI\Client\Model\FileObject**](../Model/FileObject.md)
 
 ### Authorization
 
@@ -304,32 +363,41 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **updateFile**
-> \Swagger\Client\Model\FileObject updateFile($body)
+
+## updateFile
+
+> \OpenAPI\Client\Model\FileObject updateFile($fileObject)
 
 Update a specific file from the filesystem
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FileApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\FileObject(); // \Swagger\Client\Model\FileObject | File data to update
+$fileObject = new \OpenAPI\Client\Model\FileObject(); // \OpenAPI\Client\Model\FileObject | File data to update
 
 try {
-    $result = $apiInstance->updateFile($body);
+    $result = $apiInstance->updateFile($fileObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileApi->updateFile: ', $e->getMessage(), PHP_EOL;
@@ -339,13 +407,14 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)| File data to update | [optional]
+ **fileObject** | [**\OpenAPI\Client\Model\FileObject**](../Model/FileObject.md)| File data to update | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\FileObject**](../Model/FileObject.md)
+[**\OpenAPI\Client\Model\FileObject**](../Model/FileObject.md)
 
 ### Authorization
 
@@ -353,8 +422,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

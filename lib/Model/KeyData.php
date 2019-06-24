@@ -1,6 +1,6 @@
 <?php
 /**
- * MetadataInfo
+ * KeyData
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * MetadataInfo Class Doc Comment
+ * KeyData Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MetadataInfo implements ModelInterface, ArrayAccess
+class KeyData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MetadataInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MetadataInfo';
+    protected static $openAPIModelName = 'KeyData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class MetadataInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'value' => 'string',
-        'type' => 'string'
+        'key' => 'string',
+        'docCount' => 'int'
     ];
 
     /**
@@ -69,10 +67,8 @@ class MetadataInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'uuid',
-        'name' => null,
-        'value' => null,
-        'type' => null
+        'key' => null,
+        'docCount' => null
     ];
 
     /**
@@ -102,10 +98,8 @@ class MetadataInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'value' => 'value',
-        'type' => 'type'
+        'key' => 'key',
+        'docCount' => 'doc_count'
     ];
 
     /**
@@ -114,10 +108,8 @@ class MetadataInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'value' => 'setValue',
-        'type' => 'setType'
+        'key' => 'setKey',
+        'docCount' => 'setDocCount'
     ];
 
     /**
@@ -126,10 +118,8 @@ class MetadataInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'value' => 'getValue',
-        'type' => 'getType'
+        'key' => 'getKey',
+        'docCount' => 'getDocCount'
     ];
 
     /**
@@ -192,10 +182,8 @@ class MetadataInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['docCount'] = isset($data['docCount']) ? $data['docCount'] : null;
     }
 
     /**
@@ -206,10 +194,6 @@ class MetadataInfo implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 512)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 512.";
-        }
 
         return $invalidProperties;
     }
@@ -227,101 +211,49 @@ class MetadataInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets key
      *
      * @return string|null
      */
-    public function getId()
+    public function getKey()
     {
-        return $this->container['id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets id
+     * Sets key
      *
-     * @param string|null $id unique id for metadata entry
+     * @param string|null $key Name of the key to search.
      *
      * @return $this
      */
-    public function setId($id)
+    public function setKey($key)
     {
-        $this->container['id'] = $id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets docCount
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getName()
+    public function getDocCount()
     {
-        return $this->container['name'];
+        return $this->container['docCount'];
     }
 
     /**
-     * Sets name
+     * Sets docCount
      *
-     * @param string|null $name metadata common name
+     * @param int|null $docCount Total of key
      *
      * @return $this
      */
-    public function setName($name)
+    public function setDocCount($docCount)
     {
-        if (!is_null($name) && (mb_strlen($name) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling MetadataInfo., must be smaller than or equal to 512.');
-        }
-
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string|null $value metadata value in string format
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type metadata value type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['docCount'] = $docCount;
 
         return $this;
     }
