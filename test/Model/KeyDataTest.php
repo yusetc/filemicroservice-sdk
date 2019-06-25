@@ -1,6 +1,6 @@
 <?php
 /**
- * MetadataEntryTest
+ * KeyDataTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * MetadataEntryTest Class Doc Comment
+ * KeyDataTest Class Doc Comment
  *
  * @category    Class
- * @description MetadataEntry
+ * @description KeyData
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class MetadataEntryTest extends \PHPUnit_Framework_TestCase
+class KeyDataTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,44 +69,23 @@ class MetadataEntryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "MetadataEntry"
+     * Test "KeyData"
      */
-    public function testMetadataEntry()
+    public function testKeyData()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "key"
      */
-    public function testPropertyId()
+    public function testPropertyKey()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "doc_count"
      */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
-    {
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-    }
-
-    /**
-     * Test attribute "file_object"
-     */
-    public function testPropertyFileObject()
+    public function testPropertyDocCount()
     {
     }
 }

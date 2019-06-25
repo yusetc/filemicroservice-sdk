@@ -1,6 +1,6 @@
 # Swagger\Client\SecurityApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/Giffits-Quito/fileservice-sdk/1.1.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/Giffits-Quito/fileservice-sdk/1.1.4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

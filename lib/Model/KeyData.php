@@ -1,6 +1,6 @@
 <?php
 /**
- * UserData
+ * KeyData
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * UserData Class Doc Comment
+ * KeyData Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserData implements ModelInterface, ArrayAccess
+class KeyData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UserData';
+    protected static $swaggerModelName = 'KeyData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,8 @@ class UserData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'username' => 'string',
-'password' => 'string'    ];
+        'key' => 'string',
+'doc_count' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +65,8 @@ class UserData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'username' => null,
-'password' => 'password'    ];
+        'key' => null,
+'doc_count' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +95,8 @@ class UserData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'username' => 'username',
-'password' => 'password'    ];
+        'key' => 'key',
+'doc_count' => 'doc_count'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +104,8 @@ class UserData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'username' => 'setUsername',
-'password' => 'setPassword'    ];
+        'key' => 'setKey',
+'doc_count' => 'setDocCount'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +113,8 @@ class UserData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'username' => 'getUsername',
-'password' => 'getPassword'    ];
+        'key' => 'getKey',
+'doc_count' => 'getDocCount'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +174,8 @@ class UserData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['doc_count'] = isset($data['doc_count']) ? $data['doc_count'] : null;
     }
 
     /**
@@ -187,12 +187,6 @@ class UserData implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
-        }
-        if ($this->container['password'] === null) {
-            $invalidProperties[] = "'password' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,49 +203,49 @@ class UserData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets username
+     * Gets key
      *
      * @return string
      */
-    public function getUsername()
+    public function getKey()
     {
-        return $this->container['username'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets username
+     * Sets key
      *
-     * @param string $username username for login
+     * @param string $key Name of the key to search.
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setKey($key)
     {
-        $this->container['username'] = $username;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets password
+     * Gets doc_count
      *
-     * @return string
+     * @return int
      */
-    public function getPassword()
+    public function getDocCount()
     {
-        return $this->container['password'];
+        return $this->container['doc_count'];
     }
 
     /**
-     * Sets password
+     * Sets doc_count
      *
-     * @param string $password user password
+     * @param int $doc_count Total of key
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setDocCount($doc_count)
     {
-        $this->container['password'] = $password;
+        $this->container['doc_count'] = $doc_count;
 
         return $this;
     }

@@ -1,11 +1,61 @@
 # Swagger\Client\SearchApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/Giffits-Quito/fileservice-sdk/1.1.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/Giffits-Quito/fileservice-sdk/1.1.4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**searchByKeyMetadata**](SearchApi.md#searchByKeyMetadata) | **GET** /search/all/{key} | Search file by metadata key
 [**searchFileByMetadata**](SearchApi.md#searchFileByMetadata) | **GET** /search/metadata/{key}/{value} | Search file by metadata key and value
 [**searchFileByMultipleMetadata**](SearchApi.md#searchFileByMultipleMetadata) | **POST** /search/metadata | Search file by multiple metadata passed as json
+
+# **searchByKeyMetadata**
+> \Swagger\Client\Model\KeyData[] searchByKeyMetadata($key)
+
+Search file by metadata key
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new Swagger\Client\Api\SearchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$key = "key_example"; // string | 
+
+try {
+    $result = $apiInstance->searchByKeyMetadata($key);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SearchApi->searchByKeyMetadata: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **string**|  |
+
+### Return type
+
+[**\Swagger\Client\Model\KeyData[]**](../Model/KeyData.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchFileByMetadata**
 > \Swagger\Client\Model\FileInfo[] searchFileByMetadata($key, $value)
